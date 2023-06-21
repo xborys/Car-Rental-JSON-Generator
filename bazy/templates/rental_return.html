@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>Rentals returns list</div>
+                <div>
+                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Generate 100 random</span>
+                    </a>
+                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Export to JSON</span>
+                    </a>
+                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Import from JSON</span>
+                    </a>
+                </div>
+            </div>
+        </h6>
+    </div> 
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Rent</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rental_return_list in rental_return_list %}
+                    <tr>
+                        <td>{{ rental_return_list.rent }}</td>
+                        <td>{{ rental_return_list.date }}</td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

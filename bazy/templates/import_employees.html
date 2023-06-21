@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Import Employees</h1>
+
+{% if success %}
+<div class="alert alert-success" role="alert">
+    Employees imported successfully.
+</div>
+{% endif %}
+
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Import</button>
+</form>
+
+{% endblock %}
